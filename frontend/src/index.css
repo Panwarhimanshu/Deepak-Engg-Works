@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+/* NOTE: Do NOT add an unlayered universal padding/margin reset here.
+   Tailwind v4 puts utilities in a CSS layer, and unlayered rules win over
+   layered ones, which would zero out spacing utilities site-wide.
+   Tailwind preflight already handles the base reset. */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* === TYPOGRAPHY === */
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* === GRADIENTS === */
+.hero-gradient {
+  background: linear-gradient(135deg, #060e1f 0%, #0b1d3a 40%, #112952 70%, #1a3c6e 100%);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+/* === ROYAL CARD === */
+.royal-card {
+  background: #ffffff;
+  border: 1px solid rgba(249, 115, 22, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.royal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(249, 115, 22, 0.12), 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: rgba(249, 115, 22, 0.35);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* === SECTION TITLE === */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(249,115,22,0.1), rgba(249,115,22,0.05));
+  border: 1px solid rgba(249,115,22,0.25);
+  color: #ea580c;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, #f97316, #fb923c);
+  border-radius: 2px;
+  margin-top: 10px;
+}
+
+/* === DECORATIVE === */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(249,115,22,0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.hero-lines::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(249,115,22,0.08);
+  pointer-events: none;
+}
+.hero-lines::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(249,115,22,0.12);
+  pointer-events: none;
+}
+
+/* === STAT COUNTER === */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f97316, #fb923c);
+  border-radius: 0 0 16px 16px;
+}
+
+/* === SERVICE ICON === */
+.service-icon-bg {
+  background: linear-gradient(135deg, rgba(249,115,22,0.1), rgba(249,115,22,0.05));
+  border: 1px solid rgba(249,115,22,0.2);
+  transition: all 0.3s ease;
+}
+.royal-card:hover .service-icon-bg {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  border-color: #f97316;
+}
+.royal-card:hover .service-icon-bg svg {
+  color: white !important;
+}
+
+/* === BUTTON === */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: white;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(249,115,22,0.35);
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #ea580c, #c2410c);
+  box-shadow: 0 8px 24px rgba(249,115,22,0.45);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.35);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.6);
+}
+
+/* === FLOATING BUTTONS === */
+.floating-cta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Animations are enhancement-only: content is visible by default and
+   only animates if motion is allowed. Visibility never depends on the
+   animation completing. */
+.animate-fade-up,
+.animate-fade-up-delay-1,
+.animate-fade-up-delay-2,
+.animate-fade-up-delay-3 {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-up           { animation: fadeInUp 0.7s ease 0s    backwards; }
+  .animate-fade-up-delay-1   { animation: fadeInUp 0.7s ease 0.12s backwards; }
+  .animate-fade-up-delay-2   { animation: fadeInUp 0.7s ease 0.24s backwards; }
+  .animate-fade-up-delay-3   { animation: fadeInUp 0.7s ease 0.36s backwards; }
+}
+
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid #22c55e;
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+/* === DIVIDER === */
+.diagonal-divider {
+  height: 60px;
+  background: linear-gradient(135deg, #060e1f 50%, transparent 50%);
+}
