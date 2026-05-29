@@ -36,11 +36,9 @@ export default function AdminLayout({ children, title, actions }) {
 
         {/* Logo */}
         <div className="flex items-center gap-3 px-5 py-4 border-b border-white/8">
-          <div className="bg-white rounded-xl p-1 shrink-0">
-            <img src="/logo.png" alt="Deepak Engineering Works" className="h-8 w-auto" />
-          </div>
-          <div className="min-w-0 flex-1">
-            <div className="text-orange-400 text-xs tracking-widest font-semibold">ADMIN PANEL</div>
+          <div className="min-w-0 flex-1 leading-none">
+            <div className="text-white font-bold text-base" style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif", lineHeight: 1 }}>DEEPAK ENGINEERING</div>
+            <div className="text-[#d97706] text-xs font-bold tracking-widest mt-0.5" style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif" }}>ADMIN PANEL</div>
           </div>
           <button onClick={() => setOpen(false)} className="ml-auto text-gray-500 hover:text-white lg:hidden shrink-0">
             <X size={18} />

@@ -39,9 +39,9 @@ export default function OurCranes() {
     <div className="overflow-x-hidden">
 
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="hero-gradient relative pt-48 pb-20 overflow-hidden">
+      <section className="hero-gradient relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 blueprint-bg pointer-events-none" />
-        <div className="absolute top-0 left-0 w-1 h-full bg-[#f59e0b]/60" />
+        <div className="absolute top-0 left-0 w-1 h-full bg-[#d97706]/60" />
         <div className="absolute inset-0 safety-stripe opacity-15 pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

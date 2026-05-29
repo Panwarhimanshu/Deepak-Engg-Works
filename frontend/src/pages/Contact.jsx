@@ -92,12 +92,12 @@ export default function Contact() {
   ];
 
   return (
-    <div className="pt-32 overflow-x-hidden">
+    <div className="pt-20 overflow-x-hidden">
 
       {/* ── HERO ───────────────────────────────────────────────── */}
       <section className="hero-gradient relative py-16 sm:py-24 overflow-hidden">
         <div className="absolute inset-0 blueprint-bg pointer-events-none" />
-        <div className="absolute top-0 left-0 w-1 h-full bg-[#f59e0b]/60" />
+        <div className="absolute top-0 left-0 w-1 h-full bg-[#d97706]/60" />
         <div className="absolute inset-0 safety-stripe opacity-15 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="section-badge mb-5">{t.contact.title}</div>

@@ -21,12 +21,12 @@ export default function About() {
   }, []);
 
   return (
-    <div className="pt-32 overflow-x-hidden">
+    <div className="pt-20 overflow-x-hidden">
 
       {/* ── HERO ────────────────────────────────────────────────── */}
       <section className="hero-gradient relative py-16 sm:py-24 overflow-hidden">
         <div className="absolute inset-0 blueprint-bg pointer-events-none" />
-        <div className="absolute top-0 left-0 w-1 h-full bg-[#f59e0b]/60" />
+        <div className="absolute top-0 left-0 w-1 h-full bg-[#d97706]/60" />
         <div className="absolute inset-0 safety-stripe opacity-20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="section-badge mb-5">{t.about.title}</div>
@@ -34,8 +34,8 @@ export default function About() {
             {t.about.heading}
           </h1>
           <div className="flex items-center gap-0 mb-5">
-            <div className="h-1 w-8 bg-[#f59e0b]" />
-            <div className="h-0.5 w-16 bg-[#f59e0b]/40" />
+            <div className="h-1 w-8 bg-[#d97706]" />
+            <div className="h-0.5 w-16 bg-[#d97706]/40" />
           </div>
           <p className="text-gray-300 max-w-2xl text-sm sm:text-base leading-relaxed">{t.about.body1}</p>
         </div>
@@ -56,14 +56,14 @@ export default function About() {
               {/* Director card */}
               {/* ISO badge */}
               <div className="flex items-center gap-3 mb-5 p-4 border rounded-sm"
-                style={{ background: 'rgba(245,158,11,0.06)', borderColor: 'rgba(245,158,11,0.25)' }}>
+                style={{ background: 'rgba(217,119,6,0.06)', borderColor: 'rgba(217,119,6,0.25)' }}>
                 <div className="w-10 h-10 flex items-center justify-center shrink-0 rounded-sm"
-                  style={{ background: '#f59e0b' }}>
+                  style={{ background: '#d97706' }}>
                   <ShieldCheck size={20} className="text-[#060d1b]" />
                 </div>
                 <div>
                   <p className="font-bold text-sm uppercase tracking-wide"
-                    style={{ color: '#f59e0b', fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.1em' }}>
+                    style={{ color: '#d97706', fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.1em' }}>
                     ISO 9001:2015 Certified
                   </p>
                   <p className="text-gray-500 text-xs">Quality Management System — International Standard</p>

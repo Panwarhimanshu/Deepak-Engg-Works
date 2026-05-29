@@ -28,23 +28,23 @@ export default function Footer() {
   return (
     <footer style={{ background: '#060d1b', color: '#9ca3af' }}>
       {/* Yellow engineering accent bar */}
-      <div className="h-1 bg-[#f59e0b]" />
+      <div className="h-1 bg-[#d97706]" />
 
       {/* Secondary dark strip with certifications */}
-      <div className="border-b" style={{ borderColor: 'rgba(245,158,11,0.12)', background: '#0a1422' }}>
+      <div className="border-b" style={{ borderColor: 'rgba(217,119,6,0.12)', background: '#0a1422' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-6 text-xs text-gray-500 flex-wrap"
             style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.1em', textTransform: 'uppercase' }}>
             <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-none inline-block" style={{ background: '#f59e0b' }} />
+              <span className="w-1.5 h-1.5 rounded-none inline-block" style={{ background: '#d97706' }} />
               ISO 9001:2015 Certified
             </span>
             <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-none inline-block" style={{ background: '#f59e0b' }} />
+              <span className="w-1.5 h-1.5 rounded-none inline-block" style={{ background: '#d97706' }} />
               GSTIN: 24BBJPS3473G1ZG
             </span>
             <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-none inline-block" style={{ background: '#f59e0b' }} />
+              <span className="w-1.5 h-1.5 rounded-none inline-block" style={{ background: '#d97706' }} />
               Est. 2002, Ankleshwar GIDC
             </span>
           </div>
@@ -60,9 +60,14 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link to="/" className="inline-block mb-5">
-              <div className="bg-white rounded-xl px-2 py-1 inline-block">
-                <img src="/logo.png" alt="Deepak Engineering Works" className="h-20 w-auto" />
+            <Link to="/" className="inline-block mb-5 leading-none">
+              <div
+                className="font-bold text-white hover:text-[#d97706] transition-colors"
+                style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif", fontSize: '1.9rem', lineHeight: 1 }}
+              >
+                DEEPAK<br />
+                ENGINEERING<br />
+                <span style={{ color: '#d97706' }}>WORKS</span>
               </div>
             </Link>
             <p className="text-sm leading-relaxed mb-5">
@@ -72,8 +77,8 @@ export default function Footer() {
               {['ISO 9001:2015', 'GST Registered', '400+ Workforce'].map((badge) => (
                 <span key={badge} className="text-xs px-2 py-1 border rounded-none"
                   style={{
-                    borderColor: 'rgba(245,158,11,0.25)',
-                    color: '#f59e0b',
+                    borderColor: 'rgba(217,119,6,0.25)',
+                    color: '#d97706',
                     fontFamily: "'Barlow Condensed', system-ui, sans-serif",
                     letterSpacing: '0.1em',
                     textTransform: 'uppercase',
@@ -87,7 +92,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="font-bold mb-5 text-xs uppercase tracking-widest"
-              style={{ color: '#f59e0b', fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.18em' }}>
+              style={{ color: '#d97706', fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.18em' }}>
               Quick Links
             </h4>
             <ul className="space-y-2.5">
@@ -97,7 +102,7 @@ export default function Footer() {
                     to={l.to}
                     className="flex items-center gap-2 text-sm hover:text-white transition-colors group"
                   >
-                    <ChevronRight size={12} style={{ color: 'rgba(245,158,11,0.5)' }} className="group-hover:text-[#f59e0b] transition-colors" />
+                    <ChevronRight size={12} style={{ color: 'rgba(217,119,6,0.5)' }} className="group-hover:text-[#d97706] transition-colors" />
                     {l.label}
                   </Link>
                 </li>
@@ -108,7 +113,7 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4 className="font-bold mb-5 text-xs uppercase tracking-widest"
-              style={{ color: '#f59e0b', fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.18em' }}>
+              style={{ color: '#d97706', fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.18em' }}>
               Services
             </h4>
             <ul className="space-y-2.5">
@@ -118,7 +123,7 @@ export default function Footer() {
                     to="/services"
                     className="flex items-center gap-2 text-sm hover:text-white transition-colors group"
                   >
-                    <ChevronRight size={12} style={{ color: 'rgba(245,158,11,0.5)' }} className="group-hover:text-[#f59e0b] transition-colors" />
+                    <ChevronRight size={12} style={{ color: 'rgba(217,119,6,0.5)' }} className="group-hover:text-[#d97706] transition-colors" />
                     {s}
                   </Link>
                 </li>
@@ -129,14 +134,14 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="font-bold mb-5 text-xs uppercase tracking-widest"
-              style={{ color: '#f59e0b', fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.18em' }}>
+              style={{ color: '#d97706', fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.18em' }}>
               Contact Us
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <div className="w-7 h-7 flex items-center justify-center shrink-0 rounded-none border"
-                  style={{ background: 'rgba(245,158,11,0.08)', borderColor: 'rgba(245,158,11,0.2)' }}>
-                  <MapPin size={13} style={{ color: '#f59e0b' }} />
+                  style={{ background: 'rgba(217,119,6,0.08)', borderColor: 'rgba(217,119,6,0.2)' }}>
+                  <MapPin size={13} style={{ color: '#d97706' }} />
                 </div>
                 <span className="text-sm leading-relaxed">
                   S-18, James Plaza Square,<br />Asian Paint Chowkdi,<br />GIDC, Ankleshwar – 393 002
@@ -144,8 +149,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-7 h-7 flex items-center justify-center shrink-0 rounded-none border"
-                  style={{ background: 'rgba(245,158,11,0.08)', borderColor: 'rgba(245,158,11,0.2)' }}>
-                  <Phone size={13} style={{ color: '#f59e0b' }} />
+                  style={{ background: 'rgba(217,119,6,0.08)', borderColor: 'rgba(217,119,6,0.2)' }}>
+                  <Phone size={13} style={{ color: '#d97706' }} />
                 </div>
                 <div className="text-sm">
                   <a href="tel:+919824137362" className="hover:text-white transition-colors block">+91 98241 37362</a>
@@ -154,8 +159,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-7 h-7 flex items-center justify-center shrink-0 rounded-none border"
-                  style={{ background: 'rgba(245,158,11,0.08)', borderColor: 'rgba(245,158,11,0.2)' }}>
-                  <Mail size={13} style={{ color: '#f59e0b' }} />
+                  style={{ background: 'rgba(217,119,6,0.08)', borderColor: 'rgba(217,119,6,0.2)' }}>
+                  <Mail size={13} style={{ color: '#d97706' }} />
                 </div>
                 <a href="mailto:deepak.enggwork@yahoo.com" className="text-sm hover:text-white transition-colors break-all">
                   deepak.enggwork@yahoo.com
@@ -163,8 +168,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-7 h-7 flex items-center justify-center shrink-0 rounded-none border"
-                  style={{ background: 'rgba(245,158,11,0.08)', borderColor: 'rgba(245,158,11,0.2)' }}>
-                  <Clock size={13} style={{ color: '#f59e0b' }} />
+                  style={{ background: 'rgba(217,119,6,0.08)', borderColor: 'rgba(217,119,6,0.2)' }}>
+                  <Clock size={13} style={{ color: '#d97706' }} />
                 </div>
                 <span className="text-sm">{t.contact.hoursValue}</span>
               </li>
@@ -174,14 +179,14 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs"
-          style={{ borderColor: 'rgba(245,158,11,0.12)', color: '#4b5563' }}>
+          style={{ borderColor: 'rgba(217,119,6,0.12)', color: '#4b5563' }}>
           <span>© {new Date().getFullYear()} Deepak Engineering Works. {t.footer.rights}</span>
           <div className="flex items-center gap-4">
-            <Link to="/contact" className="hover:text-[#f59e0b] transition-colors uppercase tracking-wider"
+            <Link to="/contact" className="hover:text-[#d97706] transition-colors uppercase tracking-wider"
               style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif" }}>Contact</Link>
-            <Link to="/gallery" className="hover:text-[#f59e0b] transition-colors uppercase tracking-wider"
+            <Link to="/gallery" className="hover:text-[#d97706] transition-colors uppercase tracking-wider"
               style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif" }}>Gallery</Link>
-            <Link to="/admin" className="hover:text-[#f59e0b] transition-colors uppercase tracking-wider"
+            <Link to="/admin" className="hover:text-[#d97706] transition-colors uppercase tracking-wider"
               style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif" }}>Admin</Link>
           </div>
         </div>
