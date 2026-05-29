@@ -25,13 +25,18 @@ export default function About() {
 
       {/* ── HERO ────────────────────────────────────────────────── */}
       <section className="hero-gradient relative py-16 sm:py-24 overflow-hidden">
-        <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-80 h-80 rounded-full border border-orange-500/10 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute inset-0 blueprint-bg pointer-events-none" />
+        <div className="absolute top-0 left-0 w-1 h-full bg-[#f59e0b]/60" />
+        <div className="absolute inset-0 safety-stripe opacity-20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="section-badge mb-5">{t.about.title}</div>
-          <h1 className="font-display text-3xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="font-display text-4xl sm:text-6xl font-bold text-white mb-4 leading-none uppercase">
             {t.about.heading}
           </h1>
+          <div className="flex items-center gap-0 mb-5">
+            <div className="h-1 w-8 bg-[#f59e0b]" />
+            <div className="h-0.5 w-16 bg-[#f59e0b]/40" />
+          </div>
           <p className="text-gray-300 max-w-2xl text-sm sm:text-base leading-relaxed">{t.about.body1}</p>
         </div>
       </section>
@@ -50,13 +55,18 @@ export default function About() {
 
               {/* Director card */}
               {/* ISO badge */}
-              <div className="flex items-center gap-3 mb-5 p-4 bg-purple-50 border border-purple-100 rounded-2xl">
-                <div className="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center shrink-0">
-                  <ShieldCheck size={20} className="text-white" />
+              <div className="flex items-center gap-3 mb-5 p-4 border rounded-sm"
+                style={{ background: 'rgba(245,158,11,0.06)', borderColor: 'rgba(245,158,11,0.25)' }}>
+                <div className="w-10 h-10 flex items-center justify-center shrink-0 rounded-sm"
+                  style={{ background: '#f59e0b' }}>
+                  <ShieldCheck size={20} className="text-[#060d1b]" />
                 </div>
                 <div>
-                  <p className="font-semibold text-purple-900 text-sm">ISO 9001:2015 Certified</p>
-                  <p className="text-purple-600 text-xs">Quality Management System — International Standard</p>
+                  <p className="font-bold text-sm uppercase tracking-wide"
+                    style={{ color: '#f59e0b', fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.1em' }}>
+                    ISO 9001:2015 Certified
+                  </p>
+                  <p className="text-gray-500 text-xs">Quality Management System — International Standard</p>
                 </div>
               </div>
 

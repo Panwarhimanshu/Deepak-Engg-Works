@@ -40,8 +40,9 @@ export default function OurCranes() {
 
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section className="hero-gradient relative pt-48 pb-20 overflow-hidden">
-        <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
-        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full border border-orange-500/10 -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+        <div className="absolute inset-0 blueprint-bg pointer-events-none" />
+        <div className="absolute top-0 left-0 w-1 h-full bg-[#f59e0b]/60" />
+        <div className="absolute inset-0 safety-stripe opacity-15 pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="section-badge mb-5 mx-auto inline-flex">Heavy Lift Equipment</div>

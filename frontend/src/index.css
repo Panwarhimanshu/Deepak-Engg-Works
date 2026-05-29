@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-/* NOTE: Do NOT add an unlayered universal padding/margin reset here.
-   Tailwind v4 puts utilities in a CSS layer, and unlayered rules win over
-   layered ones, which would zero out spacing utilities site-wide.
-   Tailwind preflight already handles the base reset. */
-
 html {
   scroll-behavior: smooth;
 }
@@ -20,32 +15,60 @@ body {
   min-height: 100vh;
 }
 
-/* === TYPOGRAPHY === */
+/* ═══ ENGINEERING DISPLAY FONT ═══════════════════════════════════ */
 .font-display {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Barlow Condensed', 'Oswald', 'Arial Narrow', system-ui, sans-serif;
+  letter-spacing: -0.01em;
 }
 
-/* === GRADIENTS === */
+/* ═══ ENGINEERING DARK HERO ══════════════════════════════════════ */
 .hero-gradient {
-  background: linear-gradient(135deg, #060e1f 0%, #0b1d3a 40%, #112952 70%, #1a3c6e 100%);
+  background: linear-gradient(135deg, #030810 0%, #050d1a 45%, #091525 75%, #0d1e35 100%);
 }
 
 .gold-gradient {
   background: linear-gradient(135deg, #f59e0b, #d97706);
 }
 
-/* === ROYAL CARD === */
+/* ═══ BLUEPRINT GRID PATTERN ════════════════════════════════════ */
+.blueprint-bg {
+  background-image:
+    linear-gradient(rgba(245,158,11,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,158,11,0.04) 1px, transparent 1px),
+    linear-gradient(rgba(59,130,246,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,0.025) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+}
+
+/* ═══ SAFETY STRIPE DIAGONAL ════════════════════════════════════ */
+.safety-stripe {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(245,158,11,0.08) 10px,
+    rgba(245,158,11,0.08) 20px
+  );
+}
+
+/* ═══ DOT PATTERN ════════════════════════════════════════════════ */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(245,158,11,0.14) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+}
+
+/* ═══ ENGINEERING CARD ═══════════════════════════════════════════ */
 .royal-card {
   background: #ffffff;
-  border: 1px solid rgba(249, 115, 22, 0.12);
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s ease, border-color 0.35s ease;
+  border: 1px solid #e2e8f0;
+  border-top: 3px solid #f59e0b;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .royal-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 48px rgba(249, 115, 22, 0.12), 0 8px 24px rgba(0, 0, 0, 0.08);
-  border-color: rgba(249, 115, 22, 0.35);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(245,158,11,0.15);
 }
 
 .card-hover {
@@ -56,62 +79,48 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* === SECTION TITLE === */
-.section-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, rgba(249,115,22,0.1), rgba(249,115,22,0.05));
-  border: 1px solid rgba(249,115,22,0.25);
-  color: #ea580c;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 100px;
-}
-
+/* ═══ SECTION TITLE ══════════════════════════════════════════════ */
 .section-title::after {
   content: '';
   display: block;
-  width: 56px;
-  height: 3px;
-  background: linear-gradient(90deg, #f97316, #fb923c);
+  width: 48px;
+  height: 4px;
+  background: #f59e0b;
+  border-radius: 0;
+  margin-top: 14px;
+}
+
+/* ═══ ENGINEERING BADGE ══════════════════════════════════════════ */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f59e0b;
+  color: #060d1b;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 14px;
   border-radius: 2px;
-  margin-top: 10px;
+  font-family: 'Barlow Condensed', system-ui, sans-serif;
 }
 
-/* === DECORATIVE === */
-.dot-pattern {
-  background-image: radial-gradient(circle, rgba(249,115,22,0.15) 1px, transparent 1px);
-  background-size: 24px 24px;
+/* ═══ SERVICE ICON ═══════════════════════════════════════════════ */
+.service-icon-bg {
+  background: rgba(245,158,11,0.10);
+  border: 1px solid rgba(245,158,11,0.22);
+  transition: all 0.3s ease;
+}
+.royal-card:hover .service-icon-bg {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  border-color: #f59e0b;
+}
+.royal-card:hover .service-icon-bg svg {
+  color: white !important;
 }
 
-.hero-lines::before {
-  content: '';
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  border: 1px solid rgba(249,115,22,0.08);
-  pointer-events: none;
-}
-.hero-lines::after {
-  content: '';
-  position: absolute;
-  top: -40px;
-  right: -40px;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  border: 1px solid rgba(249,115,22,0.12);
-  pointer-events: none;
-}
-
-/* === STAT COUNTER === */
+/* ═══ STAT CARD ══════════════════════════════════════════════════ */
 .stat-card {
   position: relative;
   overflow: hidden;
@@ -121,42 +130,32 @@ body {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #f97316, #fb923c);
-  border-radius: 0 0 16px 16px;
+  background: #f59e0b;
+  border-radius: 0;
 }
 
-/* === SERVICE ICON === */
-.service-icon-bg {
-  background: linear-gradient(135deg, rgba(249,115,22,0.1), rgba(249,115,22,0.05));
-  border: 1px solid rgba(249,115,22,0.2);
-  transition: all 0.3s ease;
-}
-.royal-card:hover .service-icon-bg {
-  background: linear-gradient(135deg, #f97316, #ea580c);
-  border-color: #f97316;
-}
-.royal-card:hover .service-icon-bg svg {
-  color: white !important;
-}
-
-/* === BUTTON === */
+/* ═══ BUTTONS ════════════════════════════════════════════════════ */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #f97316, #ea580c);
-  color: white;
-  font-weight: 600;
+  background: #f59e0b;
+  color: #060d1b;
+  font-weight: 800;
+  font-family: 'Barlow Condensed', system-ui, sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   padding: 14px 28px;
-  border-radius: 10px;
+  border-radius: 4px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(249,115,22,0.35);
+  box-shadow: 0 4px 20px rgba(245,158,11,0.35);
   border: none;
   cursor: pointer;
+  font-size: 0.95rem;
 }
 .btn-primary:hover {
-  background: linear-gradient(135deg, #ea580c, #c2410c);
-  box-shadow: 0 8px 24px rgba(249,115,22,0.45);
+  background: #d97706;
+  box-shadow: 0 8px 28px rgba(245,158,11,0.50);
   transform: translateY(-2px);
 }
 
@@ -166,19 +165,23 @@ body {
   gap: 8px;
   background: transparent;
   color: white;
-  font-weight: 600;
-  padding: 13px 28px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.35);
+  font-weight: 700;
+  font-family: 'Barlow Condensed', system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  border-radius: 4px;
+  border: 2px solid rgba(255,255,255,0.45);
   transition: all 0.3s ease;
   cursor: pointer;
+  font-size: 0.95rem;
 }
 .btn-outline:hover {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.75);
 }
 
-/* === FLOATING BUTTONS === */
+/* ═══ FLOATING CTAs ══════════════════════════════════════════════ */
 .floating-cta {
   position: fixed;
   bottom: 24px;
@@ -189,7 +192,7 @@ body {
   gap: 12px;
 }
 
-/* === ANIMATIONS === */
+/* ═══ ANIMATIONS ══════════════════════════════════════════════════ */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -206,10 +209,11 @@ body {
   0%   { transform: scale(0.8); opacity: 1; }
   100% { transform: scale(1.8); opacity: 0; }
 }
+@keyframes crane-swing {
+  0%, 100% { transform: rotate(0deg); transform-origin: top center; }
+  50%       { transform: rotate(1.5deg); transform-origin: top center; }
+}
 
-/* Animations are enhancement-only: content is visible by default and
-   only animates if motion is allowed. Visibility never depends on the
-   animation completing. */
 .animate-fade-up,
 .animate-fade-up-delay-1,
 .animate-fade-up-delay-2,
@@ -221,6 +225,7 @@ body {
   .animate-fade-up-delay-1   { animation: fadeInUp 0.7s ease 0.12s backwards; }
   .animate-fade-up-delay-2   { animation: fadeInUp 0.7s ease 0.24s backwards; }
   .animate-fade-up-delay-3   { animation: fadeInUp 0.7s ease 0.36s backwards; }
+  .animate-crane-swing        { animation: crane-swing 4s ease-in-out infinite; }
 }
 
 .pulse-ring::before {
@@ -232,8 +237,11 @@ body {
   animation: pulse-ring 1.5s ease-out infinite;
 }
 
-/* === DIVIDER === */
+/* ═══ LEGACY ════════════════════════════════════════════════════ */
 .diagonal-divider {
   height: 60px;
   background: linear-gradient(135deg, #060e1f 50%, transparent 50%);
 }
+
+.hero-lines::before,
+.hero-lines::after { display: none; }

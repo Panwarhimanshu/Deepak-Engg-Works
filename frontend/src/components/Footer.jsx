@@ -6,11 +6,13 @@ export default function Footer() {
   const { t } = useLang();
 
   const links = [
-    { to: '/',        label: t.nav.home    },
-    { to: '/about',   label: t.nav.about   },
-    { to: '/services',label: t.nav.services },
-    { to: '/gallery', label: t.nav.gallery  },
-    { to: '/contact', label: t.nav.contact  },
+    { to: '/',          label: t.nav.home     },
+    { to: '/about',     label: t.nav.about    },
+    { to: '/services',  label: t.nav.services  },
+    { to: '/gallery',   label: t.nav.gallery   },
+    { to: '/our-cranes',label: 'Our Cranes'    },
+    { to: '/clients',   label: 'Clients'       },
+    { to: '/contact',   label: t.nav.contact   },
   ];
 
   const services = [
@@ -20,12 +22,38 @@ export default function Footer() {
     'Plant Maintenance',
     'Commissioning Services',
     'Engineering Drawings',
+    'Heavy Crane Operations',
   ];
 
   return (
-    <footer className="bg-[#060e1f] text-gray-400">
-      {/* Top accent bar */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent" />
+    <footer style={{ background: '#060d1b', color: '#9ca3af' }}>
+      {/* Yellow engineering accent bar */}
+      <div className="h-1 bg-[#f59e0b]" />
+
+      {/* Secondary dark strip with certifications */}
+      <div className="border-b" style={{ borderColor: 'rgba(245,158,11,0.12)', background: '#0a1422' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-6 text-xs text-gray-500 flex-wrap"
+            style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-none inline-block" style={{ background: '#f59e0b' }} />
+              ISO 9001:2015 Certified
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-none inline-block" style={{ background: '#f59e0b' }} />
+              GSTIN: 24BBJPS3473G1ZG
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-none inline-block" style={{ background: '#f59e0b' }} />
+              Est. 2002, Ankleshwar GIDC
+            </span>
+          </div>
+          <span className="text-xs text-gray-600 uppercase tracking-widest"
+            style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif" }}>
+            HEAVY LIFT · FABRICATION · ERECTION
+          </span>
+        </div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
@@ -33,34 +61,43 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link to="/" className="inline-block mb-5">
-              <div className="bg-white rounded-2xl px-2 py-1 inline-block">
+              <div className="bg-white rounded-xl px-2 py-1 inline-block">
                 <img src="/logo.png" alt="Deepak Engineering Works" className="h-20 w-auto" />
               </div>
             </Link>
             <p className="text-sm leading-relaxed mb-5">
-              {t.footer.tagline}. Specialists in Pipeline, Fabrication, Erection &amp; Plant Maintenance in Gujarat.
+              {t.footer.tagline}. Specialists in Pipeline, Fabrication, Erection &amp; Plant Maintenance in Gujarat's industrial heartland.
             </p>
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1.5">
-                {[1,2,3,4,5].map((s) => (
-                  <div key={s} className="w-3 h-3 rounded-full bg-orange-500/80" style={{ opacity: 0.4 + s * 0.12 }} />
-                ))}
-              </div>
-              <span className="text-xs text-gray-500">GST Registered 2017</span>
+            <div className="flex items-center gap-2 flex-wrap">
+              {['ISO 9001:2015', 'GST Registered', '400+ Workforce'].map((badge) => (
+                <span key={badge} className="text-xs px-2 py-1 border rounded-none"
+                  style={{
+                    borderColor: 'rgba(245,158,11,0.25)',
+                    color: '#f59e0b',
+                    fontFamily: "'Barlow Condensed', system-ui, sans-serif",
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                  }}>
+                  {badge}
+                </span>
+              ))}
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Quick Links</h4>
+            <h4 className="font-bold mb-5 text-xs uppercase tracking-widest"
+              style={{ color: '#f59e0b', fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.18em' }}>
+              Quick Links
+            </h4>
             <ul className="space-y-2.5">
               {links.map((l) => (
                 <li key={l.to}>
                   <Link
                     to={l.to}
-                    className="flex items-center gap-2 text-sm hover:text-orange-400 transition-colors group"
+                    className="flex items-center gap-2 text-sm hover:text-white transition-colors group"
                   >
-                    <ChevronRight size={14} className="text-orange-500/50 group-hover:text-orange-400 transition-colors" />
+                    <ChevronRight size={12} style={{ color: 'rgba(245,158,11,0.5)' }} className="group-hover:text-[#f59e0b] transition-colors" />
                     {l.label}
                   </Link>
                 </li>
@@ -70,15 +107,18 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Services</h4>
+            <h4 className="font-bold mb-5 text-xs uppercase tracking-widest"
+              style={{ color: '#f59e0b', fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.18em' }}>
+              Services
+            </h4>
             <ul className="space-y-2.5">
               {services.map((s) => (
                 <li key={s}>
                   <Link
                     to="/services"
-                    className="flex items-center gap-2 text-sm hover:text-orange-400 transition-colors group"
+                    className="flex items-center gap-2 text-sm hover:text-white transition-colors group"
                   >
-                    <ChevronRight size={14} className="text-orange-500/50 group-hover:text-orange-400 transition-colors" />
+                    <ChevronRight size={12} style={{ color: 'rgba(245,158,11,0.5)' }} className="group-hover:text-[#f59e0b] transition-colors" />
                     {s}
                   </Link>
                 </li>
@@ -88,36 +128,43 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Contact Us</h4>
+            <h4 className="font-bold mb-5 text-xs uppercase tracking-widest"
+              style={{ color: '#f59e0b', fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.18em' }}>
+              Contact Us
+            </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
-                  <MapPin size={14} className="text-orange-400" />
+                <div className="w-7 h-7 flex items-center justify-center shrink-0 rounded-none border"
+                  style={{ background: 'rgba(245,158,11,0.08)', borderColor: 'rgba(245,158,11,0.2)' }}>
+                  <MapPin size={13} style={{ color: '#f59e0b' }} />
                 </div>
                 <span className="text-sm leading-relaxed">
                   S-18, James Plaza Square,<br />Asian Paint Chowkdi,<br />GIDC, Ankleshwar – 393 002
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
-                  <Phone size={14} className="text-orange-400" />
+                <div className="w-7 h-7 flex items-center justify-center shrink-0 rounded-none border"
+                  style={{ background: 'rgba(245,158,11,0.08)', borderColor: 'rgba(245,158,11,0.2)' }}>
+                  <Phone size={13} style={{ color: '#f59e0b' }} />
                 </div>
                 <div className="text-sm">
-                  <a href="tel:+919824137362" className="hover:text-orange-400 transition-colors block">+91 98241 37362</a>
-                  <a href="tel:+918401608487" className="hover:text-orange-400 transition-colors block">+91 84016 08487</a>
+                  <a href="tel:+919824137362" className="hover:text-white transition-colors block">+91 98241 37362</a>
+                  <a href="tel:+918401608487" className="hover:text-white transition-colors block">+91 84016 08487</a>
                 </div>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
-                  <Mail size={14} className="text-orange-400" />
+                <div className="w-7 h-7 flex items-center justify-center shrink-0 rounded-none border"
+                  style={{ background: 'rgba(245,158,11,0.08)', borderColor: 'rgba(245,158,11,0.2)' }}>
+                  <Mail size={13} style={{ color: '#f59e0b' }} />
                 </div>
-                <div className="text-sm">
-                  <a href="mailto:deepak.enggwork@yahoo.com" className="hover:text-orange-400 transition-colors block break-all">deepak.enggwork@yahoo.com</a>
-                </div>
+                <a href="mailto:deepak.enggwork@yahoo.com" className="text-sm hover:text-white transition-colors break-all">
+                  deepak.enggwork@yahoo.com
+                </a>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
-                  <Clock size={14} className="text-orange-400" />
+                <div className="w-7 h-7 flex items-center justify-center shrink-0 rounded-none border"
+                  style={{ background: 'rgba(245,158,11,0.08)', borderColor: 'rgba(245,158,11,0.2)' }}>
+                  <Clock size={13} style={{ color: '#f59e0b' }} />
                 </div>
                 <span className="text-sm">{t.contact.hoursValue}</span>
               </li>
@@ -126,12 +173,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-600">
+        <div className="border-t pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs"
+          style={{ borderColor: 'rgba(245,158,11,0.12)', color: '#4b5563' }}>
           <span>© {new Date().getFullYear()} Deepak Engineering Works. {t.footer.rights}</span>
           <div className="flex items-center gap-4">
-            <Link to="/contact" className="hover:text-orange-400 transition-colors">Contact</Link>
-            <Link to="/gallery" className="hover:text-orange-400 transition-colors">Gallery</Link>
-            <Link to="/admin" className="hover:text-orange-400 transition-colors">Admin</Link>
+            <Link to="/contact" className="hover:text-[#f59e0b] transition-colors uppercase tracking-wider"
+              style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif" }}>Contact</Link>
+            <Link to="/gallery" className="hover:text-[#f59e0b] transition-colors uppercase tracking-wider"
+              style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif" }}>Gallery</Link>
+            <Link to="/admin" className="hover:text-[#f59e0b] transition-colors uppercase tracking-wider"
+              style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif" }}>Admin</Link>
           </div>
         </div>
       </div>
