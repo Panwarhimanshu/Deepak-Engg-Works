@@ -30,14 +30,14 @@ export default function About() {
         <div className="absolute inset-0 safety-stripe opacity-20 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="section-badge mb-5">{t.about.title}</div>
-          <h1 className="font-display text-4xl sm:text-6xl font-bold text-white mb-4 leading-none uppercase">
+          <h1 className="font-display text-4xl sm:text-6xl font-bold text-gray-900 mb-4 leading-none uppercase">
             {t.about.heading}
           </h1>
           <div className="flex items-center gap-0 mb-5">
             <div className="h-1 w-8 bg-[#d97706]" />
             <div className="h-0.5 w-16 bg-[#d97706]/40" />
           </div>
-          <p className="text-gray-300 max-w-2xl text-sm sm:text-base leading-relaxed">{t.about.body1}</p>
+          <p className="text-gray-600 max-w-2xl text-sm sm:text-base leading-relaxed">{t.about.body1}</p>
         </div>
       </section>
 
@@ -70,19 +70,34 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-[#0b1d3a] to-[#1a3c6e] rounded-2xl p-6 text-white">
-                <Quote size={24} className="text-orange-400 mb-4 opacity-70" />
-                <p className="text-gray-200 text-sm leading-relaxed italic mb-5">
-                  "Our commitment is to deliver engineering excellence with safety, precision, and reliability on every project we undertake."
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 bg-orange-500 rounded-xl flex items-center justify-center font-bold text-white text-sm shrink-0">
-                    LK
+              <div className="rounded-xl overflow-hidden border shadow-lg" style={{ borderColor: 'rgba(217,119,6,0.25)' }}>
+                {/* Photo + name header */}
+                <div className="flex flex-col sm:flex-row items-center sm:items-end gap-0"
+                  style={{ background: 'linear-gradient(135deg, #92400e, #78350f)' }}>
+                  <img
+                    src="/md.jpeg"
+                    alt="Managing Director"
+                    className="w-full sm:w-48 h-56 sm:h-60 object-cover shrink-0"
+                    style={{ objectPosition: 'center 10%' }}
+                  />
+                  <div className="p-6 pb-5 text-left w-full">
+                    <div className="text-orange-300 text-xs font-bold uppercase tracking-widest mb-2"
+                      style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif" }}>
+                      {t.about.director}
+                    </div>
+                    <div className="font-bold text-white leading-tight mb-1"
+                      style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif", fontSize: '1.5rem' }}>
+                      {t.about.directorName}
+                    </div>
+                    <div className="text-orange-200/70 text-xs">Founder · Est. 2002 · Ankleshwar GIDC</div>
                   </div>
-                  <div>
-                    <div className="font-semibold text-white text-sm">{t.about.directorName}</div>
-                    <div className="text-orange-400 text-xs">{t.about.director}</div>
-                  </div>
+                </div>
+                {/* Quote */}
+                <div className="p-5" style={{ background: '#fafaf8' }}>
+                  <Quote size={20} className="text-[#d97706] mb-2 opacity-70" />
+                  <p className="text-gray-600 text-sm leading-relaxed italic">
+                    "Our commitment is to deliver engineering excellence with safety, precision, and reliability on every project we undertake."
+                  </p>
                 </div>
               </div>
             </div>
@@ -90,7 +105,7 @@ export default function About() {
             {/* Stats grid */}
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: <Calendar size={22} />, label: t.about.established, value: '2002', color: '#1a3c6e' },
+                { icon: <Calendar size={22} />, label: t.about.established, value: '2002', color: '#d97706' },
                 { icon: <Users size={22} />,    label: t.about.employees,   value: '400+', color: '#f97316' },
                 { icon: <TrendingUp size={22} />,label: t.about.turnover,   value: '₹13+ Cr', color: '#16a34a' },
                 { icon: <ShieldCheck size={22} />,label: 'ISO 9001:2015',   value: 'Certified',   color: '#7c3aed' },

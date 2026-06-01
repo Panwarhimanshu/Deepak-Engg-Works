@@ -46,10 +46,10 @@ export default function OurCranes() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="section-badge mb-5 mx-auto inline-flex">Heavy Lift Equipment</div>
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-5">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-5">
             Our Cranes
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             A fleet of high-capacity cranes available for heavy lifting, erection, and industrial projects across Gujarat.
           </p>
         </div>
@@ -72,8 +72,8 @@ export default function OurCranes() {
                   onClick={() => setActive(cat)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
                     active === cat
-                      ? 'bg-[#1a3c6e] text-white shadow-md'
-                      : 'bg-white border border-gray-200 text-gray-600 hover:border-[#1a3c6e]/40 hover:text-[#1a3c6e]'
+                      ? 'bg-[#d97706] text-white shadow-md'
+                      : 'bg-white border border-gray-200 text-gray-600 hover:border-[#d97706]/40 hover:text-[#d97706]'
                   }`}
                 >
                   {cat}
@@ -111,7 +111,7 @@ export default function OurCranes() {
                     className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden group"
                   >
                     {/* Image */}
-                    <div className="h-48 bg-gradient-to-br from-[#0b1d3a] to-[#1a3c6e] flex items-center justify-center overflow-hidden relative">
+                    <div className="h-48 bg-gradient-to-br from-[#92400e] to-[#78350f] flex items-center justify-center overflow-hidden relative">
                       {crane.imageUrl ? (
                         <img
                           src={`${import.meta.env.VITE_API_BASE?.replace('/api', '') ?? 'http://localhost:5000'}${crane.imageUrl}`}
@@ -149,19 +149,19 @@ export default function OurCranes() {
                       {/* Specs */}
                       <div className="grid grid-cols-3 gap-2 mt-4">
                         <div className="text-center p-2.5 bg-gray-50 rounded-xl border border-gray-100">
-                          <Weight size={14} className="text-[#1a3c6e] mx-auto mb-1" />
+                          <Weight size={14} className="text-[#d97706] mx-auto mb-1" />
                           <div className="text-sm font-bold text-[#0b1d3a]">{crane.capacity}T</div>
                           <div className="text-xs text-gray-400">Capacity</div>
                         </div>
                         <div className="text-center p-2.5 bg-gray-50 rounded-xl border border-gray-100">
-                          <Ruler size={14} className="text-[#1a3c6e] mx-auto mb-1" />
+                          <Ruler size={14} className="text-[#d97706] mx-auto mb-1" />
                           <div className="text-sm font-bold text-[#0b1d3a]">
                             {crane.mainBoom ? `${crane.mainBoom}m` : '—'}
                           </div>
                           <div className="text-xs text-gray-400">Main Boom</div>
                         </div>
                         <div className="text-center p-2.5 bg-gray-50 rounded-xl border border-gray-100">
-                          <MoveHorizontal size={14} className="text-[#1a3c6e] mx-auto mb-1" />
+                          <MoveHorizontal size={14} className="text-[#d97706] mx-auto mb-1" />
                           <div className="text-sm font-bold text-[#0b1d3a]">
                             {crane.jib ? `${crane.jib}m` : '—'}
                           </div>
@@ -181,10 +181,10 @@ export default function OurCranes() {
       <section className="hero-gradient relative py-16 overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
         <div className="relative max-w-3xl mx-auto px-4 text-center">
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Need a Crane for Your Project?
           </h2>
-          <p className="text-gray-300 mb-8">
+          <p className="text-gray-600 mb-8">
             Contact us for availability, rates, and on-site support. We respond within 24 hours.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

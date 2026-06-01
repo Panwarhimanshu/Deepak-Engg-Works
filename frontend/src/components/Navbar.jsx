@@ -37,12 +37,12 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isDark
-            ? 'bg-[#060d1b]/97 backdrop-blur-md shadow-2xl shadow-black/40'
+            ? 'bg-white/97 backdrop-blur-md shadow-md shadow-black/8'
             : 'bg-transparent'
         }`}
         style={isDark ? { borderBottom: '1px solid rgba(217,119,6,0.15)' } : {}}
       >
-        {/* Yellow engineering accent line at very top */}
+        {/* Gold engineering accent line at very top */}
         <div className="h-0.5 bg-[#d97706]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +52,7 @@ export default function Navbar() {
             <Link to="/" className="flex items-center shrink-0 group leading-none">
               <div>
                 <div
-                  className="font-bold text-white group-hover:text-[#d97706] transition-colors"
+                  className={`font-bold group-hover:text-[#d97706] transition-colors ${isDark ? 'text-gray-900' : 'text-white'}`}
                   style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif", fontSize: '1.45rem', lineHeight: 1.05 }}
                 >
                   DEEPAK ENGINEERING
@@ -75,7 +75,9 @@ export default function Navbar() {
                   className={`relative px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all duration-200 ${
                     isActive(l.to)
                       ? 'text-[#d97706]'
-                      : 'text-gray-300 hover:text-[#d97706]'
+                      : isDark
+                        ? 'text-gray-600 hover:text-[#d97706]'
+                        : 'text-gray-300 hover:text-[#d97706]'
                   }`}
                   style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.12em' }}
                 >
@@ -114,7 +116,11 @@ export default function Navbar() {
             {/* Mobile hamburger */}
             <button
               onClick={() => setOpen(!open)}
-              className="md:hidden w-10 h-10 flex items-center justify-center rounded text-white bg-white/10 hover:bg-[#d97706]/20 hover:text-[#d97706] transition-colors"
+              className={`md:hidden w-10 h-10 flex items-center justify-center rounded hover:text-[#d97706] transition-colors ${
+                isDark
+                  ? 'text-gray-700 bg-gray-100 hover:bg-[#d97706]/10'
+                  : 'text-white bg-white/10 hover:bg-[#d97706]/20'
+              }`}
             >
               {open ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -123,7 +129,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {open && (
-          <div className="md:hidden bg-[#060d1b]/99 backdrop-blur-md" style={{ borderTop: '1px solid rgba(217,119,6,0.15)' }}>
+          <div className="md:hidden bg-white/99 backdrop-blur-md" style={{ borderTop: '1px solid rgba(217,119,6,0.15)' }}>
             <div className="px-4 py-4 space-y-1">
               {links.map((l) => (
                 <Link
@@ -132,7 +138,7 @@ export default function Navbar() {
                   className={`flex items-center px-4 py-3 text-xs font-bold uppercase tracking-widest transition-colors ${
                     isActive(l.to)
                       ? 'text-[#d97706] bg-[#d97706]/10 border-l-2 border-[#d97706]'
-                      : 'text-gray-300 hover:bg-white/5 hover:text-[#d97706]'
+                      : 'text-gray-700 hover:bg-gray-50 hover:text-[#d97706]'
                   }`}
                   style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.12em' }}
                 >

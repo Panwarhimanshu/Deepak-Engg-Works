@@ -69,7 +69,7 @@ function StatItem({ value, suffix, label, sub, started }) {
   const count = useCounter(value, 2000, started);
   return (
     <div className="text-center py-6 px-4">
-      <div className="font-bold text-white leading-none"
+      <div className="font-bold text-gray-900 leading-none"
         style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif", fontSize: '2.6rem' }}>
         {count}{suffix}
       </div>
@@ -151,7 +151,7 @@ export default function Home() {
           </div>
 
           {/* Main heading */}
-          <h1 className="font-display font-bold text-white leading-none mb-6 animate-fade-up"
+          <h1 className="font-display font-bold text-gray-900 leading-none mb-6 animate-fade-up"
             style={{ fontSize: 'clamp(3.2rem, 9vw, 6.5rem)', letterSpacing: '-0.02em' }}>
             DEEPAK<br/>
             ENGINEERING<br/>
@@ -166,7 +166,7 @@ export default function Home() {
           </div>
 
           {/* Subtitle */}
-          <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-lg mb-10 animate-fade-up-delay-1">
+          <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-lg mb-10 animate-fade-up-delay-1">
             Gujarat's leading industrial contractor for pipeline works, structural
             fabrication, equipment erection &amp; heavy crane operations across
             GIDC facilities since 2002.
@@ -203,7 +203,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 translate-y-1/2 z-10 px-4 sm:px-6 lg:px-8" ref={statsRef}>
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-2 lg:grid-cols-4 overflow-hidden rounded-sm shadow-2xl border"
-              style={{ background: '#071525', borderColor: 'rgba(217,119,6,0.2)' }}>
+              style={{ background: '#ffffff', borderColor: 'rgba(217,119,6,0.25)' }}>
               {[
                 { v: 22, s: '+', l: 'Years', sub: 'of Excellence' },
                 { v: 400, s: '+', l: 'Workforce', sub: 'Skilled Experts' },
@@ -212,7 +212,7 @@ export default function Home() {
               ].map((stat, i) => (
                 <div key={stat.l}
                   className={`${i < 3 ? 'border-r' : ''} ${i < 2 ? 'border-b lg:border-b-0' : ''}`}
-                  style={{ borderColor: 'rgba(217,119,6,0.12)' }}>
+                  style={{ borderColor: 'rgba(217,119,6,0.15)' }}>
                   <StatItem value={stat.v} suffix={stat.s} label={stat.l} sub={stat.sub} started={statsVisible}/>
                 </div>
               ))}
@@ -222,7 +222,7 @@ export default function Home() {
       </section>
 
       {/* ══ CLIENT MARQUEE ════════════════════════════════════════ */}
-      <section className="overflow-hidden" style={{ background: '#020c1b', paddingTop: '72px', paddingBottom: '20px', borderBottom: '1px solid rgba(217,119,6,0.1)' }}>
+      <section className="overflow-hidden" style={{ background: '#fafafa', paddingTop: '72px', paddingBottom: '20px', borderBottom: '1px solid rgba(217,119,6,0.15)' }}>
         <div className="max-w-7xl mx-auto px-4 mb-4">
           <p className="text-gray-600 text-xs uppercase tracking-widest font-bold"
             style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif" }}>
@@ -232,7 +232,7 @@ export default function Home() {
         <div className="relative flex overflow-hidden">
           <div className="animate-marquee flex items-center">
             {[...marqueeClients, ...marqueeClients].map((name, i) => (
-              <span key={i} className="inline-flex items-center gap-3 mx-8 text-sm font-bold uppercase tracking-widest whitespace-nowrap text-gray-400 hover:text-[#d97706] transition-colors cursor-default"
+              <span key={i} className="inline-flex items-center gap-3 mx-8 text-sm font-bold uppercase tracking-widest whitespace-nowrap text-gray-500 hover:text-[#d97706] transition-colors cursor-default"
                 style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif" }}>
                 <span className="w-1.5 h-1.5 shrink-0 bg-[#d97706]" />
                 {name}
@@ -298,9 +298,9 @@ export default function Home() {
       </section>
 
       {/* ══ ABOUT / COMPANY ═══════════════════════════════════════ */}
-      <section className="py-24 relative overflow-hidden" style={{ background: '#020c1b' }}>
-        <div className="absolute inset-0 blueprint-bg pointer-events-none opacity-70" />
-        <div className="absolute top-0 left-0 w-1 h-full bg-[#d97706]/40" />
+      <section className="py-24 relative overflow-hidden bg-white">
+        <div className="absolute inset-0 blueprint-bg pointer-events-none opacity-40" />
+        <div className="absolute top-0 left-0 w-1 h-full bg-[#d97706]/60" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
@@ -308,11 +308,40 @@ export default function Home() {
             {/* Left */}
             <div>
               <div className="section-badge mb-5">About Us</div>
-              <h2 className="font-display text-4xl sm:text-5xl font-bold text-white mb-6 leading-none section-title">
+              <h2 className="font-display text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-none section-title">
                 ENGINEERING<br/>TRUST SINCE 2002
               </h2>
-              <p className="text-gray-400 leading-relaxed mb-4 text-[15px]">{t.about.body1}</p>
-              <p className="text-gray-400 leading-relaxed mb-10 text-[15px]">{t.about.body2}</p>
+              <p className="text-gray-600 leading-relaxed mb-4 text-[15px]">{t.about.body1}</p>
+              <p className="text-gray-600 leading-relaxed mb-6 text-[15px]">{t.about.body2}</p>
+
+              {/* Director */}
+              <div className="flex items-start gap-5 mb-8 p-5 border rounded-sm shadow-sm"
+                style={{ background: '#fafaf8', borderColor: 'rgba(217,119,6,0.22)' }}>
+                <img
+                  src="/md.jpeg"
+                  alt="Managing Director"
+                  className="w-28 h-36 rounded object-cover object-top shrink-0 border-2 shadow-md"
+                  style={{ borderColor: 'rgba(217,119,6,0.4)', objectPosition: 'center 10%' }}
+                />
+                <div className="flex flex-col justify-between" style={{ minHeight: '9rem' }}>
+                  <div>
+                    <p className="text-[#d97706] text-xs font-bold uppercase tracking-widest mb-2"
+                      style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif" }}>
+                      {t.about.director}
+                    </p>
+                    <p className="text-gray-600 text-sm leading-relaxed italic">
+                      "Our commitment is to deliver engineering excellence with safety, precision and reliability on every project."
+                    </p>
+                  </div>
+                  <div className="mt-3">
+                    <p className="text-gray-900 font-bold text-base"
+                      style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif" }}>
+                      {t.about.directorName}
+                    </p>
+                    <p className="text-gray-400 text-xs">Founder · Deepak Engineering Works · Est. 2002</p>
+                  </div>
+                </div>
+              </div>
 
               {/* Horizontal stats row */}
               <div className="grid grid-cols-3 gap-px overflow-hidden rounded-sm"
@@ -323,8 +352,8 @@ export default function Home() {
                   { v: '₹13 Cr+', l: 'Turnover' },
                 ].map((s) => (
                   <div key={s.l} className="text-center py-5"
-                    style={{ background: '#020c1b' }}>
-                    <div className="font-bold text-white text-2xl"
+                    style={{ background: '#ffffff' }}>
+                    <div className="font-bold text-gray-900 text-2xl"
                       style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif" }}>
                       {s.v}
                     </div>
@@ -341,12 +370,12 @@ export default function Home() {
             </div>
 
             {/* Right — spec sheet card */}
-            <div className="border rounded-sm overflow-hidden"
-              style={{ borderColor: 'rgba(217,119,6,0.2)', background: '#071525' }}>
+            <div className="border rounded-sm overflow-hidden shadow-lg"
+              style={{ borderColor: 'rgba(217,119,6,0.25)', background: '#ffffff' }}>
               {/* Card header */}
               <div className="px-6 py-4 border-b flex items-center justify-between"
-                style={{ borderColor: 'rgba(217,119,6,0.15)', background: '#040f1e' }}>
-                <span className="text-white font-bold text-sm uppercase tracking-widest"
+                style={{ borderColor: 'rgba(217,119,6,0.15)', background: '#fafafa' }}>
+                <span className="text-gray-900 font-bold text-sm uppercase tracking-widest"
                   style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif" }}>
                   Company At A Glance
                 </span>
@@ -374,7 +403,7 @@ export default function Home() {
                     style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif", letterSpacing: '0.1em' }}>
                     {row.k}
                   </span>
-                  <span className="text-gray-200 text-sm font-medium">{row.v}</span>
+                  <span className="text-gray-800 text-sm font-medium">{row.v}</span>
                 </div>
               ))}
             </div>
@@ -412,7 +441,7 @@ export default function Home() {
                       {step.icon}
                     </div>
                   </div>
-                  <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-[#020c1b] border border-[#d97706]/30 flex items-center justify-center text-[#d97706] text-xs font-bold"
+                  <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-white border-2 border-[#d97706] flex items-center justify-center text-[#d97706] text-xs font-bold shadow-sm"
                     style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif" }}>
                     {step.n}
                   </div>
@@ -426,7 +455,7 @@ export default function Home() {
       </section>
 
       {/* ══ WHY CHOOSE US ═════════════════════════════════════════ */}
-      <section className="py-24 relative overflow-hidden" style={{ background: '#f0f6ff' }}>
+      <section className="py-24 relative overflow-hidden" style={{ background: '#fafaf8' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
 
@@ -486,7 +515,7 @@ export default function Home() {
       </section>
 
       {/* ══ CTA BANNER ════════════════════════════════════════════ */}
-      <section className="relative py-20 overflow-hidden" style={{ background: '#020c1b' }}>
+      <section className="relative py-20 overflow-hidden" style={{ background: '#111111' }}>
         <div className="absolute inset-0 blueprint-bg pointer-events-none opacity-60" />
         <div className="absolute top-0 left-0 right-0 h-1 bg-[#d97706]" />
 
@@ -508,7 +537,7 @@ export default function Home() {
 
             {/* Right — contact card */}
             <div className="border rounded-sm p-8"
-              style={{ background: '#071525', borderColor: 'rgba(217,119,6,0.2)' }}>
+              style={{ background: '#1a1a1a', borderColor: 'rgba(217,119,6,0.25)' }}>
               <div className="space-y-4 mb-8">
                 {[
                   { label: 'Call Us', value: '+91 98241 37362', href: 'tel:+919824137362' },

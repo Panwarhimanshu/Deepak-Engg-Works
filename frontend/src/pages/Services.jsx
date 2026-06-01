@@ -39,10 +39,10 @@ export default function Services() {
         <div className="absolute inset-0 safety-stripe opacity-15 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="section-badge mb-5">{t.services.title}</div>
-          <h1 className="font-display text-4xl sm:text-6xl font-bold text-white mb-4 leading-none uppercase">
+          <h1 className="font-display text-4xl sm:text-6xl font-bold text-gray-900 mb-4 leading-none uppercase">
             {t.services.heading}
           </h1>
-          <p className="text-gray-300 max-w-2xl text-sm sm:text-base leading-relaxed">
+          <p className="text-gray-600 max-w-2xl text-sm sm:text-base leading-relaxed">
             Comprehensive industrial engineering solutions delivered with precision, safety, and reliability across Gujarat's industrial belt.
           </p>
         </div>
@@ -108,10 +108,10 @@ export default function Services() {
         <div className="absolute inset-0 dot-pattern opacity-15 pointer-events-none" />
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <div className="section-badge mb-6 mx-auto inline-flex">Get Started</div>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Need a Custom Solution?
           </h2>
-          <p className="text-gray-300 mb-8 max-w-xl mx-auto">
+          <p className="text-gray-600 mb-8 max-w-xl mx-auto">
             Contact our engineering team for a project-specific consultation and detailed quote.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

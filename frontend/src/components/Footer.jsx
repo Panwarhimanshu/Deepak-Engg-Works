@@ -26,12 +26,12 @@ export default function Footer() {
   ];
 
   return (
-    <footer style={{ background: '#060d1b', color: '#9ca3af' }}>
-      {/* Yellow engineering accent bar */}
+    <footer style={{ background: '#ffffff', color: '#4b5563', borderTop: '1px solid #e5e7eb' }}>
+      {/* Gold engineering accent bar */}
       <div className="h-1 bg-[#d97706]" />
 
-      {/* Secondary dark strip with certifications */}
-      <div className="border-b" style={{ borderColor: 'rgba(217,119,6,0.12)', background: '#0a1422' }}>
+      {/* Certification strip */}
+      <div className="border-b" style={{ borderColor: '#f3f4f6', background: '#fafaf8' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-6 text-xs text-gray-500 flex-wrap"
             style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif", letterSpacing: '0.1em', textTransform: 'uppercase' }}>
@@ -48,7 +48,7 @@ export default function Footer() {
               Est. 2002, Ankleshwar GIDC
             </span>
           </div>
-          <span className="text-xs text-gray-600 uppercase tracking-widest"
+          <span className="text-xs text-gray-400 uppercase tracking-widest"
             style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif" }}>
             HEAVY LIFT · FABRICATION · ERECTION
           </span>
@@ -62,7 +62,7 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link to="/" className="inline-block mb-5 leading-none">
               <div
-                className="font-bold text-white hover:text-[#d97706] transition-colors"
+                className="font-bold text-gray-900 hover:text-[#d97706] transition-colors"
                 style={{ fontFamily: "'Barlow Condensed', system-ui, sans-serif", fontSize: '1.9rem', lineHeight: 1 }}
               >
                 DEEPAK<br />
@@ -70,14 +70,14 @@ export default function Footer() {
                 <span style={{ color: '#d97706' }}>WORKS</span>
               </div>
             </Link>
-            <p className="text-sm leading-relaxed mb-5">
+            <p className="text-sm leading-relaxed mb-5 text-gray-500">
               {t.footer.tagline}. Specialists in Pipeline, Fabrication, Erection &amp; Plant Maintenance in Gujarat's industrial heartland.
             </p>
             <div className="flex items-center gap-2 flex-wrap">
               {['ISO 9001:2015', 'GST Registered', '400+ Workforce'].map((badge) => (
                 <span key={badge} className="text-xs px-2 py-1 border rounded-none"
                   style={{
-                    borderColor: 'rgba(217,119,6,0.25)',
+                    borderColor: 'rgba(217,119,6,0.3)',
                     color: '#d97706',
                     fontFamily: "'Barlow Condensed', system-ui, sans-serif",
                     letterSpacing: '0.1em',
@@ -100,7 +100,7 @@ export default function Footer() {
                 <li key={l.to}>
                   <Link
                     to={l.to}
-                    className="flex items-center gap-2 text-sm hover:text-white transition-colors group"
+                    className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors group"
                   >
                     <ChevronRight size={12} style={{ color: 'rgba(217,119,6,0.5)' }} className="group-hover:text-[#d97706] transition-colors" />
                     {l.label}
@@ -121,7 +121,7 @@ export default function Footer() {
                 <li key={s}>
                   <Link
                     to="/services"
-                    className="flex items-center gap-2 text-sm hover:text-white transition-colors group"
+                    className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors group"
                   >
                     <ChevronRight size={12} style={{ color: 'rgba(217,119,6,0.5)' }} className="group-hover:text-[#d97706] transition-colors" />
                     {s}
@@ -143,7 +143,7 @@ export default function Footer() {
                   style={{ background: 'rgba(217,119,6,0.08)', borderColor: 'rgba(217,119,6,0.2)' }}>
                   <MapPin size={13} style={{ color: '#d97706' }} />
                 </div>
-                <span className="text-sm leading-relaxed">
+                <span className="text-sm leading-relaxed text-gray-500">
                   S-18, James Plaza Square,<br />Asian Paint Chowkdi,<br />GIDC, Ankleshwar – 393 002
                 </span>
               </li>
@@ -153,8 +153,8 @@ export default function Footer() {
                   <Phone size={13} style={{ color: '#d97706' }} />
                 </div>
                 <div className="text-sm">
-                  <a href="tel:+919824137362" className="hover:text-white transition-colors block">+91 98241 37362</a>
-                  <a href="tel:+918401608487" className="hover:text-white transition-colors block">+91 84016 08487</a>
+                  <a href="tel:+919824137362" className="text-gray-600 hover:text-gray-900 transition-colors block">+91 98241 37362</a>
+                  <a href="tel:+918401608487" className="text-gray-600 hover:text-gray-900 transition-colors block">+91 84016 08487</a>
                 </div>
               </li>
               <li className="flex items-center gap-3">
@@ -162,7 +162,7 @@ export default function Footer() {
                   style={{ background: 'rgba(217,119,6,0.08)', borderColor: 'rgba(217,119,6,0.2)' }}>
                   <Mail size={13} style={{ color: '#d97706' }} />
                 </div>
-                <a href="mailto:deepak.enggwork@yahoo.com" className="text-sm hover:text-white transition-colors break-all">
+                <a href="mailto:deepak.enggwork@yahoo.com" className="text-sm text-gray-600 hover:text-gray-900 transition-colors break-all">
                   deepak.enggwork@yahoo.com
                 </a>
               </li>
@@ -171,7 +171,7 @@ export default function Footer() {
                   style={{ background: 'rgba(217,119,6,0.08)', borderColor: 'rgba(217,119,6,0.2)' }}>
                   <Clock size={13} style={{ color: '#d97706' }} />
                 </div>
-                <span className="text-sm">{t.contact.hoursValue}</span>
+                <span className="text-sm text-gray-500">{t.contact.hoursValue}</span>
               </li>
             </ul>
           </div>
@@ -179,7 +179,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs"
-          style={{ borderColor: 'rgba(217,119,6,0.12)', color: '#4b5563' }}>
+          style={{ borderColor: '#e5e7eb', color: '#6b7280' }}>
           <span>© {new Date().getFullYear()} Deepak Engineering Works. {t.footer.rights}</span>
           <div className="flex items-center gap-4">
             <Link to="/contact" className="hover:text-[#d97706] transition-colors uppercase tracking-wider"

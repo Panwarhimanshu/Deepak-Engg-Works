@@ -23,7 +23,7 @@ body {
 
 /* ═══ ENGINEERING DARK HERO ══════════════════════════════════════ */
 .hero-gradient {
-  background: linear-gradient(135deg, #010608 0%, #030d1c 45%, #051628 75%, #071e35 100%);
+  background: linear-gradient(160deg, #ffffff 0%, #fdf9f0 100%);
 }
 
 .gold-gradient {
@@ -164,21 +164,21 @@ body {
   align-items: center;
   gap: 8px;
   background: transparent;
-  color: white;
+  color: #d97706;
   font-weight: 700;
   font-family: 'Barlow Condensed', system-ui, sans-serif;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 26px;
   border-radius: 4px;
-  border: 2px solid rgba(255,255,255,0.45);
+  border: 2px solid rgba(217,119,6,0.45);
   transition: all 0.3s ease;
   cursor: pointer;
   font-size: 0.95rem;
 }
 .btn-outline:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.75);
+  background: rgba(217,119,6,0.07);
+  border-color: rgba(217,119,6,0.8);
 }
 
 /* ═══ FLOATING CTAs ══════════════════════════════════════════════ */

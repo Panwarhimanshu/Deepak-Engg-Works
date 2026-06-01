@@ -57,7 +57,7 @@ export default function Contact() {
       icon: <MapPin size={20} />,
       label: t.contact.address,
       content: 'S-18, James Plaza Square, Asian Paint Chowkdi, Station Road, G.I.D.C., Ankleshwar – 393 002',
-      bg: '#1a3c6e',
+      bg: '#d97706',
     },
     {
       icon: <MapPin size={20} />,
@@ -101,10 +101,10 @@ export default function Contact() {
         <div className="absolute inset-0 safety-stripe opacity-15 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="section-badge mb-5">{t.contact.title}</div>
-          <h1 className="font-display text-4xl sm:text-6xl font-bold text-white mb-4 leading-none uppercase">
+          <h1 className="font-display text-4xl sm:text-6xl font-bold text-gray-900 mb-4 leading-none uppercase">
             {t.contact.heading}
           </h1>
-          <p className="text-gray-300 max-w-2xl text-sm sm:text-base leading-relaxed">
+          <p className="text-gray-600 max-w-2xl text-sm sm:text-base leading-relaxed">
             Have a project in mind? Fill in the form and our team will get back to you within 24 hours.
           </p>
         </div>
@@ -221,13 +221,13 @@ export default function Contact() {
                               onClick={() => toggleCrane(crane)}
                               className={`text-left px-3 py-2 rounded-xl border text-sm transition-all ${
                                 selected
-                                  ? 'bg-[#1a3c6e] border-[#1a3c6e] text-white font-medium'
-                                  : 'bg-gray-50 border-gray-200 text-gray-600 hover:border-[#1a3c6e]/40 hover:text-[#1a3c6e]'
+                                  ? 'bg-[#d97706] border-[#d97706] text-white font-medium'
+                                  : 'bg-gray-50 border-gray-200 text-gray-600 hover:border-[#d97706]/40 hover:text-[#d97706]'
                               }`}
                             >
                               <span className="flex items-center gap-2">
                                 <span className={`w-3.5 h-3.5 rounded border flex items-center justify-center shrink-0 ${selected ? 'bg-white border-white' : 'border-gray-300'}`}>
-                                  {selected && <svg viewBox="0 0 12 12" fill="none" className="w-2.5 h-2.5"><path d="M2 6l3 3 5-5" stroke="#1a3c6e" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+                                  {selected && <svg viewBox="0 0 12 12" fill="none" className="w-2.5 h-2.5"><path d="M2 6l3 3 5-5" stroke="#d97706" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>}
                                 </span>
                                 {crane}
                               </span>

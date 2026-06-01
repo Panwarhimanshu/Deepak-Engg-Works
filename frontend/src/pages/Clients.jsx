@@ -68,10 +68,10 @@ export default function Clients() {
         <div className="absolute inset-0 safety-stripe opacity-15 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="section-badge mb-5">Our Clientele</div>
-          <h1 className="font-display text-4xl sm:text-6xl font-bold text-white mb-4 leading-none uppercase">
+          <h1 className="font-display text-4xl sm:text-6xl font-bold text-gray-900 mb-4 leading-none uppercase">
             Trusted by Gujarat's<br className="hidden sm:block" /> Leading Industries
           </h1>
-          <p className="text-gray-300 max-w-2xl text-sm sm:text-base leading-relaxed">
+          <p className="text-gray-600 max-w-2xl text-sm sm:text-base leading-relaxed">
             For over two decades, Deepak Engineering Works has been the engineering partner of choice for India's top chemical, petrochemical, pharmaceutical and specialty materials companies in Ankleshwar GIDC.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
@@ -173,7 +173,7 @@ export default function Clients() {
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-[#0b1d3a] to-[#1a3c6e] rounded-3xl p-8 sm:p-10 text-white">
+            <div className="bg-gradient-to-br from-[#92400e] to-[#78350f] rounded-3xl p-8 sm:p-10 text-white">
               <p className="text-orange-400 text-sm font-semibold uppercase tracking-wider mb-6">What Our Clients Say</p>
               <blockquote className="text-gray-200 text-sm leading-relaxed italic mb-6">
                 "Deepak Engineering Works has been our go-to mechanical contractor for pipeline and fabrication work. Their team is professional, safety-conscious, and consistently delivers on schedule."
@@ -195,8 +195,8 @@ export default function Clients() {
         <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <div className="section-badge mb-6 mx-auto inline-flex">Work With Us</div>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Become Our Next Success Story</h2>
-          <p className="text-gray-300 mb-8 max-w-xl mx-auto text-sm sm:text-base">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Become Our Next Success Story</h2>
+          <p className="text-gray-600 mb-8 max-w-xl mx-auto text-sm sm:text-base">
             Join the growing list of Gujarat's leading manufacturers who trust Deepak Engineering Works for their critical engineering projects.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
