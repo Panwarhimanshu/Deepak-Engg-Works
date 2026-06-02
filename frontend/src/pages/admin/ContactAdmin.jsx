@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from '../../api/axios';
-import { Plus, Trash2, TowerControl } from 'lucide-react';
+import { Plus, Trash2, TowerControl, Pencil, Check, X } from 'lucide-react';
 import AdminLayout from './AdminLayout';
 
 export default function ContactAdmin() {
@@ -9,6 +9,10 @@ export default function ContactAdmin() {
   const [newName,      setNewName]      = useState('');
   const [adding,       setAdding]       = useState(false);
   const [error,        setError]        = useState('');
+  const [editingName,  setEditingName]  = useState(null);
+  const [editValue,    setEditValue]    = useState('');
+  const [editError,    setEditError]    = useState('');
+  const [saving,       setSaving]       = useState(false);
 
   useEffect(() => {
     api.get('/contact-config')
@@ -40,6 +44,34 @@ export default function ContactAdmin() {
       setCraneOptions(res.data.craneOptions);
     } catch {
       alert('Failed to delete');
+    }
+  };
+
+  const startEdit = (name) => {
+    setEditingName(name);
+    setEditValue(name);
+    setEditError('');
+  };
+
+  const cancelEdit = () => {
+    setEditingName(null);
+    setEditValue('');
+    setEditError('');
+  };
+
+  const handleSaveEdit = async (oldName) => {
+    if (!editValue.trim()) return;
+    if (editValue.trim() === oldName) { cancelEdit(); return; }
+    setSaving(true);
+    setEditError('');
+    try {
+      const res = await api.put(`/contact-config/cranes/${encodeURIComponent(oldName)}`, { name: editValue.trim() });
+      setCraneOptions(res.data.craneOptions);
+      cancelEdit();
+    } catch (err) {
+      setEditError(err.response?.data?.message || 'Failed to save');
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -86,21 +118,59 @@ export default function ContactAdmin() {
           ) : (
             <div className="space-y-2">
               {craneOptions.map((name) => (
-                <div
-                  key={name}
-                  className="flex items-center justify-between gap-3 px-4 py-3 bg-gray-50 rounded-xl border border-gray-100"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-orange-400 rounded-full shrink-0" />
-                    <span className="text-sm font-medium text-[#0b1d3a]">{name}</span>
-                  </div>
-                  <button
-                    onClick={() => handleDelete(name)}
-                    className="p-1.5 text-red-400 hover:bg-red-50 rounded-lg transition-colors"
-                    title="Remove"
-                  >
-                    <Trash2 size={15} />
-                  </button>
+                <div key={name} className="rounded-xl border border-gray-100 bg-gray-50 overflow-hidden">
+                  {editingName === name ? (
+                    <div className="px-4 py-3 space-y-2">
+                      <div className="flex gap-2">
+                        <input
+                          autoFocus
+                          type="text"
+                          value={editValue}
+                          onChange={(e) => { setEditValue(e.target.value); setEditError(''); }}
+                          onKeyDown={(e) => { if (e.key === 'Enter') handleSaveEdit(name); if (e.key === 'Escape') cancelEdit(); }}
+                          className="flex-1 border border-[#1a3c6e] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a3c6e]/20"
+                        />
+                        <button
+                          onClick={() => handleSaveEdit(name)}
+                          disabled={saving || !editValue.trim()}
+                          className="flex items-center gap-1.5 px-3 py-2 bg-[#1a3c6e] hover:bg-[#0f2444] disabled:opacity-50 text-white rounded-lg text-sm font-semibold transition-colors"
+                        >
+                          <Check size={14} /> {saving ? 'Saving…' : 'Save'}
+                        </button>
+                        <button
+                          onClick={cancelEdit}
+                          className="p-2 text-gray-400 hover:bg-gray-200 rounded-lg transition-colors"
+                          title="Cancel"
+                        >
+                          <X size={15} />
+                        </button>
+                      </div>
+                      {editError && <p className="text-red-500 text-xs">{editError}</p>}
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-between gap-3 px-4 py-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-orange-400 rounded-full shrink-0" />
+                        <span className="text-sm font-medium text-[#0b1d3a]">{name}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <button
+                          onClick={() => startEdit(name)}
+                          className="p-1.5 text-blue-400 hover:bg-blue-50 rounded-lg transition-colors"
+                          title="Edit"
+                        >
+                          <Pencil size={14} />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(name)}
+                          className="p-1.5 text-red-400 hover:bg-red-50 rounded-lg transition-colors"
+                          title="Remove"
+                        >
+                          <Trash2 size={15} />
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

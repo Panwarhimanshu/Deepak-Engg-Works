@@ -89,7 +89,7 @@ export default function About() {
                       style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif", fontSize: '1.5rem' }}>
                       {t.about.directorName}
                     </div>
-                    <div className="text-orange-200/70 text-xs">Founder · Est. 2002 · Ankleshwar GIDC</div>
+                    <div className="text-orange-200/70 text-xs">Founder · Est. 2002 · Deepak Engineering Works</div>
                   </div>
                 </div>
                 {/* Quote */}
@@ -122,6 +122,67 @@ export default function About() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── LEADERSHIP ──────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="section-badge mb-4 mx-auto inline-flex">Our Leadership</div>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#0b1d3a]">
+              The People Behind Our Success
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+
+            {/* Managing Director */}
+            <div className="rounded-xl overflow-hidden border shadow-lg" style={{ borderColor: 'rgba(217,119,6,0.25)' }}>
+              <div className="flex flex-col items-center" style={{ background: 'linear-gradient(135deg, #92400e, #78350f)' }}>
+                <img
+                  src="/md.jpeg"
+                  alt="Managing Director"
+                  className="w-full h-64 object-cover"
+                  style={{ objectPosition: 'center 10%' }}
+                />
+                <div className="p-5 text-center w-full">
+                  <div className="text-orange-300 text-xs font-bold uppercase tracking-widest mb-1"
+                    style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif" }}>
+                    {t.about.director}
+                  </div>
+                  <div className="font-bold text-white text-xl mb-0.5"
+                    style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif" }}>
+                    {t.about.directorName}
+                  </div>
+                  <div className="text-orange-200/70 text-xs">Founder · Est. 2002 · Deepak Engineering Works</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Board Director */}
+            <div className="rounded-xl overflow-hidden border shadow-lg" style={{ borderColor: 'rgba(26,60,110,0.25)' }}>
+              <div className="flex flex-col items-center" style={{ background: 'linear-gradient(135deg, #1a3c6e, #0f2444)' }}>
+                <img
+                  src="/shivpratap.jpeg"
+                  alt="Board Director"
+                  className="w-full h-64 object-cover"
+                  style={{ objectPosition: 'center 15%' }}
+                />
+                <div className="p-5 text-center w-full">
+                  <div className="text-blue-300 text-xs font-bold uppercase tracking-widest mb-1"
+                    style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif" }}>
+                    Board Director
+                  </div>
+                  <div className="font-bold text-white text-xl mb-0.5"
+                    style={{ fontFamily: "'Barlow Condensed',system-ui,sans-serif" }}>
+                    Mr. Shivpratap Singh
+                  </div>
+                  <div className="text-blue-200/70 text-xs">Board of Directors · Deepak Engineering Works</div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
