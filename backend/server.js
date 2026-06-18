@@ -6,8 +6,13 @@ require('dotenv').config();
 
 const app = express();
 
+const allowedOrigins = [/^http:\/\/localhost:\d+$/];
+if (process.env.FRONTEND_URL) {
+  // Support a comma-separated list of allowed production origins
+  process.env.FRONTEND_URL.split(',').forEach((o) => allowedOrigins.push(o.trim()));
+}
 app.use(cors({
-  origin: /^http:\/\/localhost:\d+$/,
+  origin: allowedOrigins,
   credentials: true,
 }));
 app.use(express.json());
@@ -30,8 +35,7 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log('MongoDB connected');
-    app.listen(process.env.PORT, () =>
-      console.log(`Server running on port ${process.env.PORT}`)
-    );
+    const port = process.env.PORT || 5000;
+    app.listen(port, () => console.log(`Server running on port ${port}`));
   })
   .catch((err) => console.error('MongoDB connection error:', err));
