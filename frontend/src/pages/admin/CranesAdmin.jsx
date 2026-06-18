@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import api from '../../api/axios';
+import { imageSrc } from '../../utils/imageUrl';
 import { Plus, Pencil, Trash2, Check, X, Upload, Image } from 'lucide-react';
 import AdminLayout from './AdminLayout';
 
 const CATEGORIES = ['Telescopic Boom', 'Lattice Boom', 'Crawler', 'Pick & Carry'];
 const emptyForm  = { name: '', category: 'Telescopic Boom', capacity: '', mainBoom: '', jib: '', order: 0 };
-const API_ORIGIN  = import.meta.env.VITE_API_BASE?.replace('/api', '') ?? 'http://localhost:5000';
 
 /* ── Form lives OUTSIDE parent so it never gets recreated on re-render ── */
 function CraneForm({ form, setForm, preview, onPickImage, fileRef, saving, onSubmit, onCancel }) {
@@ -182,7 +182,7 @@ export default function CranesAdmin() {
       order:    crane.order,
     });
     setImageFile(null);
-    setPreview(crane.imageUrl ? `${API_ORIGIN}${crane.imageUrl}` : '');
+    setPreview(imageSrc(crane.imageUrl));
     setShowAdd(false);
     if (fileRef.current) fileRef.current.value = '';
   };
@@ -257,7 +257,7 @@ export default function CranesAdmin() {
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-12 rounded-lg overflow-hidden bg-gray-100 shrink-0">
                     {crane.imageUrl ? (
-                      <img src={`${API_ORIGIN}${crane.imageUrl}`} alt={crane.name} className="w-full h-full object-cover" />
+                      <img src={imageSrc(crane.imageUrl)} alt={crane.name} className="w-full h-full object-cover" />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
                         <Image size={18} className="text-gray-300" />

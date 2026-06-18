@@ -7,6 +7,7 @@ const craneSchema = new mongoose.Schema({
   mainBoom:   { type: Number },
   jib:        { type: Number },
   imageUrl:   { type: String },
+  imagePublicId: { type: String },
   order:      { type: Number, default: 0 },
 }, { timestamps: true });
 

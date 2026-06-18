@@ -1,30 +1,9 @@
 const router = require('express').Router();
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
 const Crane = require('../models/Crane');
 const auth = require('../middleware/auth');
+const { makeUpload, fileInfo, deleteAsset } = require('../config/upload');
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const dir = path.join(__dirname, '../uploads');
-    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-    cb(null, dir);
-  },
-  filename: (req, file, cb) => {
-    const unique = `crane-${Date.now()}-${Math.round(Math.random() * 1e9)}${path.extname(file.originalname)}`;
-    cb(null, unique);
-  },
-});
-
-const upload = multer({
-  storage,
-  fileFilter: (req, file, cb) => {
-    const allowed = /jpeg|jpg|png|webp/;
-    cb(null, allowed.test(path.extname(file.originalname).toLowerCase()));
-  },
-  limits: { fileSize: 5 * 1024 * 1024 },
-});
+const upload = makeUpload('cranes', 'crane');
 
 // Public: list all cranes
 router.get('/', async (req, res) => {
@@ -40,13 +19,14 @@ router.get('/', async (req, res) => {
 router.post('/', auth, upload.single('image'), async (req, res) => {
   try {
     const { name, category, capacity, mainBoom, jib, order } = req.body;
-    const imageUrl = req.file ? `/uploads/${req.file.filename}` : '';
+    const file = fileInfo(req.file);
     const crane = await Crane.create({
       name, category,
       capacity: Number(capacity),
       mainBoom: mainBoom ? Number(mainBoom) : undefined,
       jib: jib ? Number(jib) : undefined,
-      imageUrl,
+      imageUrl: file ? file.url : '',
+      imagePublicId: file ? file.publicId : undefined,
       order: Number(order) || 0,
     });
     res.status(201).json(crane);
@@ -71,11 +51,10 @@ router.put('/:id', auth, upload.single('image'), async (req, res) => {
 
     if (req.file) {
       // Delete old image
-      if (crane.imageUrl) {
-        const old = path.join(__dirname, '..', crane.imageUrl);
-        if (fs.existsSync(old)) fs.unlinkSync(old);
-      }
-      crane.imageUrl = `/uploads/${req.file.filename}`;
+      await deleteAsset({ url: crane.imageUrl, publicId: crane.imagePublicId });
+      const file = fileInfo(req.file);
+      crane.imageUrl = file.url;
+      crane.imagePublicId = file.publicId;
     }
 
     await crane.save();
@@ -90,10 +69,7 @@ router.delete('/:id', auth, async (req, res) => {
   try {
     const crane = await Crane.findById(req.params.id);
     if (!crane) return res.status(404).json({ message: 'Not found' });
-    if (crane.imageUrl) {
-      const filePath = path.join(__dirname, '..', crane.imageUrl);
-      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
-    }
+    await deleteAsset({ url: crane.imageUrl, publicId: crane.imagePublicId });
     await Crane.findByIdAndDelete(req.params.id);
     res.json({ message: 'Deleted' });
   } catch {

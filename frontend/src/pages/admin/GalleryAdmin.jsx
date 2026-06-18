@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import api from '../../api/axios';
+import { imageSrc } from '../../utils/imageUrl';
 import { Upload, Trash2, Plus, X } from 'lucide-react';
 import AdminLayout from './AdminLayout';
 
@@ -136,7 +137,7 @@ export default function GalleryAdmin() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {images.map((img) => (
             <div key={img._id} className="relative group rounded-2xl overflow-hidden bg-gray-200 aspect-square shadow-sm">
-              <img src={img.imageUrl} alt={img.title} className="w-full h-full object-cover" />
+              <img src={imageSrc(img.imageUrl)} alt={img.title} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-black/55 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2 p-3">
                 <p className="text-white text-xs font-semibold text-center leading-tight">{img.title}</p>
                 <span className="text-xs bg-orange-500 text-white px-2 py-0.5 rounded-full">{img.category}</span>

@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import api from '../../api/axios';
+import { imageSrc } from '../../utils/imageUrl';
 import { Plus, Trash2, Upload, Building2, X, Pencil, Check, Save } from 'lucide-react';
 import AdminLayout from './AdminLayout';
 
-const API_BASE = import.meta.env.VITE_API_BASE?.replace('/api', '') ?? 'http://localhost:5000';
 const emptyForm = { name: '', sector: '', type: 'running', order: 0 };
 
 /* ── Shared form (used for both Add and Edit) ─────────────────── */
@@ -14,7 +14,7 @@ function ClientForm({ form, setForm, preview, setPreview, onPickLogo, fileRef, s
     setForm((f) => ({ ...f, _removeLogo: true }));
   };
 
-  const currentLogo = preview || (existingLogoUrl && !form._removeLogo ? `${API_BASE}${existingLogoUrl}` : null);
+  const currentLogo = preview || (existingLogoUrl && !form._removeLogo ? imageSrc(existingLogoUrl) : null);
 
   return (
     <form onSubmit={onSubmit} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 sm:p-6 mb-6">
@@ -285,7 +285,7 @@ export default function ClientsAdmin() {
                       {/* Logo */}
                       <div className="w-14 h-14 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center shrink-0 overflow-hidden">
                         {client.logoUrl
-                          ? <img src={`${API_BASE}${client.logoUrl}`} alt={client.name} className="w-full h-full object-contain p-1" />
+                          ? <img src={imageSrc(client.logoUrl)} alt={client.name} className="w-full h-full object-contain p-1" />
                           : <Building2 size={20} className="text-gray-300" />
                         }
                       </div>

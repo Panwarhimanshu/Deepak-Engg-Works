@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Building2, Phone, MessageCircle } from 'lucide-react';
 import api from '../api/axios';
-
-const API_BASE = import.meta.env.VITE_API_BASE?.replace('/api', '') ?? 'http://localhost:5000';
+import { imageSrc } from '../utils/imageUrl';
 
 const colors = [
   '#1a3c6e', '#f97316', '#16a34a', '#7c3aed',
@@ -28,7 +27,7 @@ function ClientCard({ client, index }) {
         style={client.logoUrl ? { background: '#fff' } : { background: color }}
       >
         {client.logoUrl
-          ? <img src={`${API_BASE}${client.logoUrl}`} alt={client.name} className="w-full h-full object-contain p-1" />
+          ? <img src={imageSrc(client.logoUrl)} alt={client.name} className="w-full h-full object-contain p-1" />
           : <span className="text-white font-bold text-sm">{initials || <Building2 size={20} />}</span>
         }
       </div>

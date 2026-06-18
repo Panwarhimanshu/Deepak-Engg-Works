@@ -5,6 +5,7 @@ const clientSchema = new mongoose.Schema({
   sector:  { type: String, default: '' },
   type:    { type: String, enum: ['running', 'past'], required: true },
   logoUrl: { type: String },
+  logoPublicId: { type: String },
   order:   { type: Number, default: 0 },
 }, { timestamps: true });
 

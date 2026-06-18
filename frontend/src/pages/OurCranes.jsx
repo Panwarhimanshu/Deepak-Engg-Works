@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api/axios';
+import { imageSrc } from '../utils/imageUrl';
 import { ChevronRight, Phone, MessageCircle, Weight, Ruler, MoveHorizontal } from 'lucide-react';
 
 const CATEGORIES = ['All', 'Telescopic Boom', 'Lattice Boom', 'Crawler', 'Pick & Carry'];
@@ -129,7 +130,7 @@ export default function OurCranes() {
                     <div className="h-48 bg-gradient-to-br from-[#92400e] to-[#78350f] flex items-center justify-center overflow-hidden relative">
                       {crane.imageUrl ? (
                         <img
-                          src={`${import.meta.env.VITE_API_BASE?.replace('/api', '') ?? 'http://localhost:5000'}${crane.imageUrl}`}
+                          src={imageSrc(crane.imageUrl)}
                           alt={crane.name}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />

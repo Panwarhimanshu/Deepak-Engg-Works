@@ -1,23 +1,10 @@
 const express  = require('express');
 const router   = express.Router();
-const multer   = require('multer');
-const path     = require('path');
-const fs       = require('fs');
 const Client   = require('../models/Client');
 const verifyToken = require('../middleware/auth');
+const { makeUpload, fileInfo, deleteAsset } = require('../config/upload');
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const dir = path.join(__dirname, '..', 'uploads');
-    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-    cb(null, dir);
-  },
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname);
-    cb(null, `client-${Date.now()}-${Math.floor(Math.random() * 1e6)}${ext}`);
-  },
-});
-const upload = multer({ storage, limits: { fileSize: 5 * 1024 * 1024 } });
+const upload = makeUpload('clients', 'client');
 
 // GET all — public
 router.get('/', async (req, res) => {
@@ -34,12 +21,14 @@ router.post('/', verifyToken, upload.single('logo'), async (req, res) => {
   try {
     const { name, sector, type, order } = req.body;
     if (!name || !type) return res.status(400).json({ message: 'Name and type are required' });
+    const file = fileInfo(req.file);
     const client = new Client({
       name,
       sector: sector || '',
       type,
       order: Number(order) || 0,
-      logoUrl: req.file ? `/uploads/${req.file.filename}` : undefined,
+      logoUrl: file ? file.url : undefined,
+      logoPublicId: file ? file.publicId : undefined,
     });
     await client.save();
     res.status(201).json(client);
@@ -62,17 +51,14 @@ router.put('/:id', verifyToken, upload.single('logo'), async (req, res) => {
 
     if (req.file) {
       // Delete old logo
-      if (client.logoUrl) {
-        const old = path.join(__dirname, '..', client.logoUrl);
-        if (fs.existsSync(old)) fs.unlinkSync(old);
-      }
-      client.logoUrl = `/uploads/${req.file.filename}`;
+      await deleteAsset({ url: client.logoUrl, publicId: client.logoPublicId });
+      const file = fileInfo(req.file);
+      client.logoUrl = file.url;
+      client.logoPublicId = file.publicId;
     } else if (removeLogo === 'true') {
-      if (client.logoUrl) {
-        const old = path.join(__dirname, '..', client.logoUrl);
-        if (fs.existsSync(old)) fs.unlinkSync(old);
-      }
+      await deleteAsset({ url: client.logoUrl, publicId: client.logoPublicId });
       client.logoUrl = undefined;
+      client.logoPublicId = undefined;
     }
 
     await client.save();
@@ -87,10 +73,7 @@ router.delete('/:id', verifyToken, async (req, res) => {
   try {
     const client = await Client.findByIdAndDelete(req.params.id);
     if (!client) return res.status(404).json({ message: 'Not found' });
-    if (client.logoUrl) {
-      const filePath = path.join(__dirname, '..', client.logoUrl);
-      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
-    }
+    await deleteAsset({ url: client.logoUrl, publicId: client.logoPublicId });
     res.json({ message: 'Deleted' });
   } catch (err) {
     res.status(500).json({ message: err.message });

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLang } from '../contexts/LangContext';
 import api from '../api/axios';
+import { imageSrc } from '../utils/imageUrl';
 
 export default function Gallery() {
   const { t } = useLang();
@@ -80,7 +81,7 @@ export default function Gallery() {
                   onClick={() => setSelected(img)}
                 >
                   <img
-                    src={img.imageUrl}
+                    src={imageSrc(img.imageUrl)}
                     alt={img.title}
                     className="w-full h-full object-cover"
                   />
@@ -102,7 +103,7 @@ export default function Gallery() {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={selected.imageUrl}
+              src={imageSrc(selected.imageUrl)}
               alt={selected.title}
               className="w-full object-contain max-h-[70vh]"
             />
