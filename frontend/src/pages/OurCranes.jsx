@@ -23,7 +23,7 @@ export default function OurCranes() {
 
   useEffect(() => {
     api.get('/cranes')
-      .then((res) => setCranes(res.data))
+      .then((res) => setCranes(Array.isArray(res.data) ? res.data : []))
       .catch(() => {})
       .finally(() => setLoading(false));
   }, []);
@@ -52,6 +52,21 @@ export default function OurCranes() {
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             A fleet of high-capacity cranes available for heavy lifting, erection, and industrial projects across Gujarat.
           </p>
+
+          <div className="flex flex-wrap justify-center gap-6 mt-8">
+            <div className="bg-white/80 backdrop-blur border border-gray-100 rounded-2xl px-6 py-4 shadow-sm text-center">
+              <div className="text-3xl font-bold text-[#d97706]">10<span className="text-2xl">+</span></div>
+              <div className="text-xs text-gray-500 font-medium mt-0.5">Cranes in Fleet</div>
+            </div>
+            <div className="bg-white/80 backdrop-blur border border-gray-100 rounded-2xl px-6 py-4 shadow-sm text-center">
+              <div className="text-3xl font-bold text-[#d97706]">400<span className="text-2xl">T</span></div>
+              <div className="text-xs text-gray-500 font-medium mt-0.5">Max Capacity</div>
+            </div>
+            <div className="bg-white/80 backdrop-blur border border-gray-100 rounded-2xl px-6 py-4 shadow-sm text-center">
+              <div className="text-3xl font-bold text-[#d97706]">25<span className="text-2xl">+</span></div>
+              <div className="text-xs text-gray-500 font-medium mt-0.5">Years Experience</div>
+            </div>
+          </div>
         </div>
 
         <div className="absolute bottom-0 left-0 right-0">

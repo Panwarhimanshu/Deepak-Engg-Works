@@ -50,7 +50,7 @@ export default function Clients() {
 
   useEffect(() => {
     api.get('/clients')
-      .then((res) => setClients(res.data))
+      .then((res) => setClients(Array.isArray(res.data) ? res.data : []))
       .catch(() => {})
       .finally(() => setLoading(false));
   }, []);

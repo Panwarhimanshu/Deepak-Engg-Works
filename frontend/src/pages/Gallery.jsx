@@ -15,7 +15,7 @@ export default function Gallery() {
 
   useEffect(() => {
     api.get('/gallery')
-      .then((res) => setImages(res.data))
+      .then((res) => setImages(Array.isArray(res.data) ? res.data : []))
       .catch(() => {})
       .finally(() => setLoading(false));
   }, []);
